@@ -136,11 +136,11 @@ class Screen(pyte.Screen):
     def erase_in_display(self, how=0, private=False):
         interval = None
         if how == 0:
-            interval = range(self.cursor.y + 1, self.line_buffer.max_lines + 1)
+            interval = range(self.cursor.y + 1, self.line_buffer.max_line + 1)
         elif how == 1:
             interval = range(self.cursor.y)
         elif how == 2 or how == 3:
-            interval = range(self.line_buffer.min_line, self.line_buffer.max_lines + 1)
+            interval = range(self.line_buffer.min_line, self.line_buffer.max_line + 1)
         self.dirty.update(interval)
         for y in interval:
             line = self.buffer[y]
